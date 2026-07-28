@@ -137,20 +137,19 @@ animation:load 4s forwards;
 
 @keyframes load{
 
-0%{
+from{
 
 width:0%;
 
 }
 
-100%{
+to{
 
 width:100%;
 
 }
 
 }
-
 
 
 .online{
@@ -200,12 +199,70 @@ transition:.3s;
 }
 
 
-
 .button:hover{
 
 transform:scale(1.05);
 
 box-shadow:0 0 25px #1493ff;
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+#analysis,
+#memory{
+
+animation:fadeIn 1s ease;
+
+}
+
+
+
+#analysisBar,
+#memoryBar{
+
+width:0%;
+
+}
+
+
+
+.dynamicButton{
+
+margin-top:35px;
+
+padding:15px 35px;
+
+background:#53b8ff;
+
+border:none;
+
+color:white;
+
+font-size:16px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.dynamicButton:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 20px #53b8ff;
 
 }
 
@@ -224,53 +281,6 @@ color:#6aa7d8;
 font-size:13px;
 
 opacity:.5;
-
-}
-
-
-
-.hidden{
-
-display:none;
-
-}
-
-
-
-#analysis{
-
-animation:fadeIn 1s ease;
-
-}
-
-
-
-#analysisBar{
-
-width:0%;
-
-animation:analysisLoad 8s forwards;
-
-}
-
-
-
-@keyframes analysisLoad{
-
-
-from{
-
-width:0%;
-
-}
-
-
-to{
-
-width:100%;
-
-}
-
 
 }
 
@@ -310,9 +320,7 @@ transform:translateY(0);
 }
 
 
-
 </style>
-
 
 </head>
 
@@ -323,7 +331,7 @@ transform:translateY(0);
 <div class="container">
 
 
-<!-- FASE INICIAL -->
+<!-- INICIO -->
 
 
 <div id="home">
@@ -371,7 +379,6 @@ Initializing Emotional Core...
 </div>
 
 
-
 <button class="button" onclick="startAnalysis()">
 
 INICIAR ANÁLISIS
@@ -383,8 +390,7 @@ INICIAR ANÁLISIS
 
 
 
-
-<!-- FASE ANALISIS -->
+<!-- ANALISIS -->
 
 
 <div id="analysis" class="hidden">
@@ -404,13 +410,11 @@ EMOTIONAL ENGINE v1.8
 </div>
 
 
-
 <div class="status" id="analysisText">
 
 Initializing analysis...
 
 </div>
-
 
 
 <div class="progress">
@@ -424,9 +428,44 @@ Initializing analysis...
 
 
 
+<!-- MEMORY CORE -->
+
+
+<div id="memory" class="hidden">
+
+
+<div class="logo">
+
+OpenHeart AI
 
 </div>
 
+
+<div class="version">
+
+MEMORY CORE v1.0
+
+</div>
+
+
+<div class="status" id="memoryText">
+
+Accessing encrypted memories...
+
+</div>
+
+
+<div class="progress">
+
+<div class="bar" id="memoryBar"></div>
+
+</div>
+
+
+</div>
+
+
+</div>
 
 
 <div class="footer">
@@ -434,10 +473,6 @@ Initializing analysis...
 Build 18:18
 
 </div>
-
-
-
-
 
 <script>
 
@@ -453,7 +488,6 @@ document.getElementById("analysis").classList.remove("hidden");
 
 
 let text=document.getElementById("analysisText");
-
 
 
 let messages=[
@@ -475,7 +509,6 @@ let messages=[
 ];
 
 
-
 let i=0;
 
 
@@ -484,6 +517,10 @@ let interval=setInterval(()=>{
 
 
 text.innerHTML=messages[i];
+
+
+document.getElementById("analysisBar").style.width=((i+1)*25)+"%";
+
 
 
 i++;
@@ -534,6 +571,16 @@ STATUS:
 
 Exceptionally Unique
 
+
+<br><br>
+
+
+<button class="dynamicButton" onclick="openMemory()">
+
+ACCESS MEMORY CORE
+
+</button>
+
 `;
 
 
@@ -552,6 +599,210 @@ Exceptionally Unique
 
 }
 
+
+
+
+
+function openMemory(){
+
+
+document.getElementById("analysis").style.display="none";
+
+
+document.getElementById("memory").classList.remove("hidden");
+
+
+
+let text=document.getElementById("memoryText");
+
+
+
+let messages=[
+
+
+"Accessing encrypted memories...",
+
+
+"Searching emotional database...",
+
+
+"Decrypting personal records...",
+
+
+"4 memory files detected..."
+
+
+
+];
+
+
+
+let i=0;
+
+
+
+let interval=setInterval(()=>{
+
+
+text.innerHTML=messages[i];
+
+
+document.getElementById("memoryBar").style.width=((i+1)*25)+"%";
+
+
+
+i++;
+
+
+
+if(i>=messages.length){
+
+
+clearInterval(interval);
+
+
+
+setTimeout(()=>{
+
+
+text.innerHTML=`
+
+<div style="font-size:20px;color:#74ff9f;">
+
+MEMORY CORE ANALYSIS COMPLETE
+
+</div>
+
+
+<br><br>
+
+
+RECOVERED FILES:
+
+
+<br><br>
+
+
+✓ 23_JULY_FIRST_CONNECTION.dat
+
+<br>
+
+
+✓ 26_JULY_SIGNAL_EVENT.log
+
+<br>
+
+
+✓ NACIONAL_MOMENT.archive
+
+<br>
+
+
+✓ 18_NOVEMBER_BEGINNING.connection
+
+
+<br><br>
+
+
+<button class="dynamicButton" onclick="finalReveal()">
+
+OPEN FINAL REPORT
+
+</button>
+
+`;
+
+
+
+},1500);
+
+
+
+}
+
+
+
+},2000);
+
+
+
+}
+
+
+
+
+
+function finalReveal(){
+
+
+let memory=document.getElementById("memory");
+
+
+memory.innerHTML=`
+
+<div class="logo">
+
+OpenHeart AI
+
+</div>
+
+
+<div class="version">
+
+FINAL EMOTIONAL REPORT
+
+</div>
+
+
+<div class="status">
+
+
+The system detected something unusual.
+
+
+<br><br>
+
+
+These are not just memories.
+
+<br><br>
+
+
+They are moments.
+
+
+<br><br>
+
+
+<span style="font-size:28px;color:#53b8ff;">
+
+DAYANA
+
+</span>
+
+
+<br><br>
+
+
+Connection Status:
+
+<br>
+
+
+<span style="color:#74ff9f;font-size:20px;">
+
+IRREPLACEABLE
+
+</span>
+
+
+</div>
+
+`;
+
+
+
+}
 
 
 </script>
