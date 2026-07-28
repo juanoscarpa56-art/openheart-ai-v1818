@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,7 +8,8 @@
 
 <title>OpenHeart AI v18.18</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 
 <style>
 
@@ -16,6 +18,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
+
 
 body{
 
@@ -37,6 +40,7 @@ overflow:hidden;
 
 }
 
+
 .container{
 
 text-align:center;
@@ -46,6 +50,7 @@ width:90%;
 max-width:700px;
 
 }
+
 
 .logo{
 
@@ -59,6 +64,7 @@ margin-bottom:12px;
 
 }
 
+
 .version{
 
 color:#53b8ff;
@@ -68,6 +74,7 @@ font-size:18px;
 margin-bottom:40px;
 
 }
+
 
 .subtitle{
 
@@ -79,15 +86,19 @@ margin-bottom:60px;
 
 }
 
+
 .status{
 
 font-size:17px;
 
-opacity:.8;
+opacity:.85;
 
 margin-top:35px;
 
+line-height:1.8;
+
 }
+
 
 .progress{
 
@@ -105,25 +116,42 @@ margin-top:20px;
 
 }
 
-.bar{
 
-width:0%;
+.bar{
 
 height:100%;
 
 background:linear-gradient(90deg,#2aa8ff,#7fd0ff);
 
+}
+
+
+.initialBar{
+
+width:0%;
+
 animation:load 4s forwards;
 
 }
 
+
 @keyframes load{
 
-0%{width:0%;}
+0%{
 
-100%{width:100%;}
+width:0%;
 
 }
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+
 
 .online{
 
@@ -140,6 +168,8 @@ animation:show 1s forwards;
 animation-delay:4.2s;
 
 }
+
+
 
 .button{
 
@@ -169,11 +199,17 @@ transition:.3s;
 
 }
 
+
+
 .button:hover{
 
 transform:scale(1.05);
 
+box-shadow:0 0 25px #1493ff;
+
 }
+
+
 
 .footer{
 
@@ -191,6 +227,55 @@ opacity:.5;
 
 }
 
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+#analysis{
+
+animation:fadeIn 1s ease;
+
+}
+
+
+
+#analysisBar{
+
+width:0%;
+
+animation:analysisLoad 8s forwards;
+
+}
+
+
+
+@keyframes analysisLoad{
+
+
+from{
+
+width:0%;
+
+}
+
+
+to{
+
+width:100%;
+
+}
+
+
+}
+
+
+
 @keyframes show{
 
 to{
@@ -201,13 +286,48 @@ opacity:1;
 
 }
 
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
 </style>
+
 
 </head>
 
+
 <body>
 
+
 <div class="container">
+
+
+<!-- FASE INICIAL -->
+
+
+<div id="home">
+
 
 <div class="logo">
 
@@ -215,11 +335,13 @@ OpenHeart AI
 
 </div>
 
+
 <div class="version">
 
 Version 18.18
 
 </div>
+
 
 <div class="subtitle">
 
@@ -227,17 +349,20 @@ Artificial Intelligence for Emotional Analysis
 
 </div>
 
+
 <div>
 
 Initializing Emotional Core...
 
 </div>
 
+
 <div class="progress">
 
-<div class="bar"></div>
+<div class="bar initialBar"></div>
 
 </div>
+
 
 <div class="online">
 
@@ -245,19 +370,192 @@ Initializing Emotional Core...
 
 </div>
 
-<button class="button">
+
+
+<button class="button" onclick="startAnalysis()">
 
 INICIAR ANÁLISIS
 
 </button>
 
+
 </div>
+
+
+
+
+<!-- FASE ANALISIS -->
+
+
+<div id="analysis" class="hidden">
+
+
+<div class="logo">
+
+OpenHeart AI
+
+</div>
+
+
+<div class="version">
+
+EMOTIONAL ENGINE v1.8
+
+</div>
+
+
+
+<div class="status" id="analysisText">
+
+Initializing analysis...
+
+</div>
+
+
+
+<div class="progress">
+
+<div class="bar" id="analysisBar"></div>
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
 
 <div class="footer">
 
 Build 18:18
 
 </div>
+
+
+
+
+
+<script>
+
+
+function startAnalysis(){
+
+
+document.getElementById("home").style.display="none";
+
+
+document.getElementById("analysis").classList.remove("hidden");
+
+
+
+let text=document.getElementById("analysisText");
+
+
+
+let messages=[
+
+
+"Initializing Emotional Engine...",
+
+
+"Loading Memory System...",
+
+
+"Analyzing connection patterns...",
+
+
+"Generating personalized report..."
+
+
+
+];
+
+
+
+let i=0;
+
+
+
+let interval=setInterval(()=>{
+
+
+text.innerHTML=messages[i];
+
+
+i++;
+
+
+
+if(i>=messages.length){
+
+
+clearInterval(interval);
+
+
+
+setTimeout(()=>{
+
+
+text.innerHTML=`
+
+<div style="font-size:22px;color:#74ff9f;">
+
+ANALYSIS COMPLETE
+
+</div>
+
+
+<br>
+
+
+SUBJECT IDENTIFIED:
+
+<br>
+
+
+<span style="font-size:35px;color:#53b8ff;">
+
+D.
+
+</span>
+
+
+<br><br>
+
+
+STATUS:
+
+<br>
+
+
+Exceptionally Unique
+
+`;
+
+
+
+},1500);
+
+
+
+}
+
+
+
+},2000);
+
+
+
+}
+
+
+
+</script>
+
 
 </body>
 
