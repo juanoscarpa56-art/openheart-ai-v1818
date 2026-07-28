@@ -23,147 +23,125 @@ box-sizing:border-box;
 body{
 
 background:#070b12;
-
 color:white;
-
 font-family:'Inter',sans-serif;
 
 display:flex;
-
 justify-content:center;
-
 align-items:center;
 
 height:100vh;
-
 overflow:hidden;
 
 }
+
 
 
 .container{
 
 text-align:center;
-
 width:90%;
-
 max-width:700px;
 
 }
 
 
+
 .logo{
 
 font-size:58px;
-
 font-weight:700;
-
 letter-spacing:2px;
-
 margin-bottom:12px;
 
 }
 
 
+
 .version{
 
 color:#53b8ff;
-
 font-size:18px;
-
 margin-bottom:40px;
 
 }
 
 
+
 .subtitle{
 
 font-size:20px;
-
 opacity:.75;
-
 margin-bottom:60px;
 
 }
 
 
+
 .status{
 
 font-size:17px;
-
 opacity:.85;
-
 margin-top:35px;
-
 line-height:1.8;
 
 }
 
 
+
 .progress{
 
 width:100%;
-
 height:10px;
-
 background:#1a2331;
-
 border-radius:50px;
-
 overflow:hidden;
-
 margin-top:20px;
 
 }
 
 
+
 .bar{
 
 height:100%;
-
 background:linear-gradient(90deg,#2aa8ff,#7fd0ff);
 
 }
 
 
+
 .initialBar{
 
 width:0%;
-
 animation:load 4s forwards;
 
 }
 
 
+
 @keyframes load{
 
 from{
-
 width:0%;
-
 }
 
 to{
-
 width:100%;
-
 }
 
 }
+
 
 
 .online{
 
 margin-top:40px;
-
 font-size:18px;
-
 color:#74ff9f;
 
 opacity:0;
-
 animation:show 1s forwards;
-
 animation-delay:4.2s;
 
 }
@@ -173,25 +151,20 @@ animation-delay:4.2s;
 .button{
 
 margin-top:45px;
-
 padding:18px 45px;
 
 background:#1493ff;
-
 border:none;
 
 color:white;
-
 font-size:18px;
 
 border-radius:12px;
-
 cursor:pointer;
 
 opacity:0;
 
 animation:show 1s forwards;
-
 animation-delay:5s;
 
 transition:.3s;
@@ -199,10 +172,10 @@ transition:.3s;
 }
 
 
+
 .button:hover{
 
 transform:scale(1.05);
-
 box-shadow:0 0 25px #1493ff;
 
 }
@@ -217,40 +190,18 @@ display:none;
 
 
 
-#analysis,
-#memory{
-
-animation:fadeIn 1s ease;
-
-}
-
-
-
-#analysisBar,
-#memoryBar{
-
-width:0%;
-
-}
-
-
-
 .dynamicButton{
 
 margin-top:35px;
-
 padding:15px 35px;
 
 background:#53b8ff;
-
 border:none;
 
 color:white;
-
 font-size:16px;
 
 border-radius:12px;
-
 cursor:pointer;
 
 transition:.3s;
@@ -258,10 +209,10 @@ transition:.3s;
 }
 
 
+
 .dynamicButton:hover{
 
 transform:scale(1.05);
-
 box-shadow:0 0 20px #53b8ff;
 
 }
@@ -271,15 +222,11 @@ box-shadow:0 0 20px #53b8ff;
 .footer{
 
 position:absolute;
-
 bottom:18px;
-
 right:20px;
 
 color:#6aa7d8;
-
 font-size:13px;
-
 opacity:.5;
 
 }
@@ -289,9 +236,7 @@ opacity:.5;
 @keyframes show{
 
 to{
-
 opacity:1;
-
 }
 
 }
@@ -303,16 +248,13 @@ opacity:1;
 from{
 
 opacity:0;
-
 transform:translateY(20px);
 
 }
 
-
 to{
 
 opacity:1;
-
 transform:translateY(0);
 
 }
@@ -320,9 +262,59 @@ transform:translateY(0);
 }
 
 
+
+/* V4 MEMORY TIMELINE */
+
+
+.timeline{
+
+margin-top:25px;
+text-align:left;
+font-size:15px;
+line-height:1.8;
+
+}
+
+
+
+.timelineItem{
+
+opacity:0;
+animation:show 1s forwards;
+
+margin-bottom:18px;
+
+padding-left:15px;
+
+border-left:2px solid #53b8ff;
+
+}
+
+
+
+.timelineDate{
+
+color:#53b8ff;
+font-weight:700;
+font-size:17px;
+
+}
+
+
+
+.timelineText{
+
+color:#74ff9f;
+
+}
+
+
+
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -330,8 +322,6 @@ transform:translateY(0);
 
 <div class="container">
 
-
-<!-- INICIO -->
 
 
 <div id="home">
@@ -390,7 +380,6 @@ INICIAR ANÁLISIS
 
 
 
-<!-- ANALISIS -->
 
 
 <div id="analysis" class="hidden">
@@ -428,7 +417,7 @@ Initializing analysis...
 
 
 
-<!-- MEMORY CORE -->
+
 
 
 <div id="memory" class="hidden">
@@ -465,7 +454,9 @@ Accessing encrypted memories...
 </div>
 
 
+
 </div>
+
 
 
 <div class="footer">
@@ -473,6 +464,9 @@ Accessing encrypted memories...
 Build 18:18
 
 </div>
+
+
+
 
 <script>
 
@@ -492,21 +486,16 @@ let text=document.getElementById("analysisText");
 
 let messages=[
 
-
 "Initializing Emotional Engine...",
-
 
 "Loading Memory System...",
 
-
 "Analyzing connection patterns...",
-
 
 "Generating personalized report..."
 
-
-
 ];
+
 
 
 let i=0;
@@ -548,7 +537,6 @@ ANALYSIS COMPLETE
 
 <br>
 
-
 SUBJECT IDENTIFIED:
 
 <br>
@@ -563,11 +551,9 @@ D.
 
 <br><br>
 
-
 STATUS:
 
 <br>
-
 
 Exceptionally Unique
 
@@ -582,7 +568,6 @@ ACCESS MEMORY CORE
 </button>
 
 `;
-
 
 
 },1500);
@@ -603,6 +588,7 @@ ACCESS MEMORY CORE
 
 
 
+
 function openMemory(){
 
 
@@ -616,22 +602,15 @@ document.getElementById("memory").classList.remove("hidden");
 let text=document.getElementById("memoryText");
 
 
-
 let messages=[
-
 
 "Accessing encrypted memories...",
 
-
 "Searching emotional database...",
-
 
 "Decrypting personal records...",
 
-
-"4 memory files detected..."
-
-
+"TIMELINE RECOVERED..."
 
 ];
 
@@ -669,39 +648,100 @@ text.innerHTML=`
 
 <div style="font-size:20px;color:#74ff9f;">
 
-MEMORY CORE ANALYSIS COMPLETE
+MEMORY CORE ACTIVATED
 
 </div>
 
 
-<br><br>
-
-
-RECOVERED FILES:
-
-
-<br><br>
-
-
-✓ 23_JULY_FIRST_CONNECTION.dat
-
 <br>
 
 
-✓ 26_JULY_SIGNAL_EVENT.log
+<div style="font-size:18px;color:#53b8ff;">
+
+MEMORY TIMELINE
+
+</div>
+
+
+
+<div class="timeline">
+
+
+<div class="timelineItem" style="animation-delay:.5s">
+
+<div class="timelineDate">
+
+23 JULY
+
+</div>
+
+<div class="timelineText">
+
+● First Connection Detected
+
+</div>
+
+</div>
+
+
+
+<div class="timelineItem" style="animation-delay:1.5s">
+
+<div class="timelineDate">
+
+26 JULY
+
+</div>
+
+<div class="timelineText">
+
+● Signal Event Registered
+
+</div>
+
+</div>
+
+
+
+<div class="timelineItem" style="animation-delay:2.5s">
+
+<div class="timelineDate">
+
+04 AUGUST
+
+</div>
+
+<div class="timelineText">
+
+● Nacional Moment Archived
+
+</div>
+
+</div>
+
+
+
+<div class="timelineItem" style="animation-delay:3.5s">
+
+<div class="timelineDate">
+
+18 NOVEMBER
+
+</div>
+
+<div class="timelineText">
+
+● Connection Protocol Initiated
+
+</div>
+
+</div>
+
+
+</div>
+
 
 <br>
-
-
-✓ NACIONAL_MOMENT.archive
-
-<br>
-
-
-✓ 18_NOVEMBER_BEGINNING.connection
-
-
-<br><br>
 
 
 <button class="dynamicButton" onclick="finalReveal()">
@@ -709,6 +749,7 @@ RECOVERED FILES:
 OPEN FINAL REPORT
 
 </button>
+
 
 `;
 
@@ -727,6 +768,8 @@ OPEN FINAL REPORT
 
 
 }
+
+
 
 
 
@@ -754,27 +797,21 @@ FINAL EMOTIONAL REPORT
 </div>
 
 
+
 <div class="status">
 
 
-The system detected something unusual.
+<div style="font-size:18px;color:#53b8ff;">
+
+PRIMARY SUBJECT:
+
+</div>
 
 
-<br><br>
+<br>
 
 
-These are not just memories.
-
-<br><br>
-
-
-They are moments.
-
-
-<br><br>
-
-
-<span style="font-size:28px;color:#53b8ff;">
+<span style="font-size:38px;color:#53b8ff;">
 
 DAYANA
 
@@ -784,19 +821,50 @@ DAYANA
 <br><br>
 
 
-Connection Status:
+The system analyzed memories.
+
+
+<br><br>
+
+
+The system analyzed moments.
+
+
+<br><br>
+
+
+But one variable remains impossible to calculate:
+
+
+<br><br>
+
+
+<span style="font-size:24px;color:white;">
+
+THE VALUE OF SOMEONE SPECIAL.
+
+</span>
+
+
+<br><br><br>
+
+
+CONNECTION STATUS:
+
 
 <br>
 
 
-<span style="color:#74ff9f;font-size:20px;">
+<span style="color:#74ff9f;font-size:24px;">
 
 IRREPLACEABLE
 
 </span>
 
 
+
 </div>
+
 
 `;
 
@@ -806,6 +874,7 @@ IRREPLACEABLE
 
 
 </script>
+
 
 
 </body>
