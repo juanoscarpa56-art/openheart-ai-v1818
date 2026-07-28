@@ -6,10 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OpenHeart AI v7.0</title>
+<title>OpenHeart AI v8.0</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 
 <style>
 
@@ -19,392 +18,267 @@ padding:0;
 box-sizing:border-box;
 }
 
-
 body{
-
 background:#050912;
 color:white;
-
 font-family:'Inter',sans-serif;
-
-height:100vh;
-
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-
 overflow:hidden;
-
 }
-
-
 
 .container{
-
 width:90%;
 max-width:700px;
-
 text-align:center;
-
 }
-
-
 
 .logo{
-
 font-size:55px;
 font-weight:700;
-
 letter-spacing:2px;
-
 margin-bottom:10px;
-
 }
-
-
 
 .version{
-
 color:#53b8ff;
-
 font-size:18px;
-
 margin-bottom:35px;
-
 }
-
-
 
 .status{
-
 font-size:17px;
-
 line-height:1.8;
-
 opacity:.9;
-
 margin-top:25px;
-
 }
-
-
 
 .progress{
-
 width:100%;
-
 height:10px;
-
 background:#182231;
-
 border-radius:50px;
-
 overflow:hidden;
-
 margin-top:25px;
-
 }
-
-
 
 .bar{
-
 height:100%;
-
 width:0%;
-
-background:linear-gradient(
-90deg,
-#1493ff,
-#74ff9f
-);
-
+background:linear-gradient(90deg,#1493ff,#74ff9f);
 transition:1s;
-
 }
-
-
 
 .button,
 .dynamicButton{
 
 margin-top:35px;
-
 padding:16px 35px;
-
 background:#1493ff;
-
 border:none;
-
 border-radius:12px;
-
 color:white;
-
 font-size:17px;
-
 cursor:pointer;
-
 transition:.3s;
 
 }
-
-
 
 .button:hover,
 .dynamicButton:hover{
 
 transform:scale(1.05);
-
 box-shadow:0 0 25px #1493ff;
 
 }
 
-
-
 .hidden{
-
 display:none;
-
 }
-
-
 
 .online{
 
 margin-top:35px;
-
 color:#74ff9f;
-
 font-size:18px;
 
 }
 
-
-
 .footer{
 
 position:absolute;
-
 bottom:15px;
-
 right:20px;
-
 font-size:13px;
-
 color:#5c8db5;
-
 opacity:.5;
 
 }
 
 
-
-
-
-/* MEMORY TIMELINE */
-
-
-.timeline{
-
-margin-top:25px;
-
-text-align:left;
-
-}
-
-
-
-.timelineItem{
-
-padding:15px;
-
-margin-bottom:15px;
-
-border-left:2px solid #53b8ff;
-
-background:#0b1422;
-
-border-radius:10px;
-
-animation:fade 1s forwards;
-
-}
-
-
-
-.timelineDate{
-
-color:#53b8ff;
-
-font-size:18px;
-
-font-weight:700;
-
-}
-
-
-
-.timelineText{
-
-color:#74ff9f;
-
-margin-top:5px;
-
-}
-
-
-
-
-
-/* MEMORY FILES */
-
+/* MEMORY */
 
 .memoryFile{
 
 background:#0b1422;
-
 border:1px solid #26394d;
-
 border-radius:15px;
-
 padding:20px;
-
 margin-top:20px;
-
 animation:fade 1s;
 
 }
 
-
-
 .fileName{
 
 color:#53b8ff;
-
 font-size:18px;
-
 font-weight:600;
 
 }
 
-
-
 .fileStatus{
 
 color:#74ff9f;
-
 margin-top:10px;
 
 }
 
-
-
 .fileDescription{
 
 margin-top:15px;
-
 opacity:.8;
-
 line-height:1.6;
 
 }
 
 
-
-
-
-/* IMAGENES */
-
-
 .memoryImage{
 
 width:100%;
-
 max-width:420px;
-
 border-radius:18px;
-
 margin-top:20px;
-
 box-shadow:0 0 30px #53b8ff;
-
 animation:fade 1.5s;
 
 }
 
 
-
 .scan{
 
 color:#53b8ff;
-
 font-size:16px;
-
 margin-top:15px;
-
 animation:pulse 1s infinite;
 
 }
 
 
+/* LETTER */
+
+.letterBox{
+
+margin-top:30px;
+background:#fff7ed;
+color:#38291f;
+padding:35px;
+border-radius:15px;
+box-shadow:0 0 40px #53b8ff;
+text-align:left;
+line-height:1.8;
+min-height:300px;
+
+}
+
+
+.envelope{
+
+font-size:80px;
+animation:float 2s infinite;
+
+}
+
+
+.letterTitle{
+
+color:#b47b36;
+font-size:25px;
+font-weight:bold;
+margin-bottom:20px;
+
+}
+
+
+#typedText{
+
+white-space:pre-line;
+
+}
+
+
+.heart{
+
+font-size:35px;
+animation:pulse 1.5s infinite;
+margin-top:20px;
+text-align:center;
+
+}
 
 
 @keyframes fade{
 
 from{
-
 opacity:0;
-
 transform:translateY(20px);
-
 }
 
 to{
-
 opacity:1;
-
 transform:translateY(0);
-
 }
 
 }
-
 
 
 @keyframes pulse{
 
 50%{
-
 opacity:.4;
-
 }
 
 }
 
+
+@keyframes float{
+
+50%{
+transform:translateY(-10px);
+}
+
+}
 
 
 </style>
 
 </head>
 
-<!-- HOME -->
+<body>
+
+<div class="container">
 
 <div id="home">
 
-
 <div class="logo">
-
 OpenHeart AI
-
 </div>
-
 
 <div class="version">
-
-VERSION 7.0
-
+VERSION 8.0
 </div>
-
 
 <div class="status">
 
@@ -416,132 +290,73 @@ Initializing Emotional Core...
 
 </div>
 
-
 <div class="progress">
-
 <div class="bar" id="initialBar"></div>
-
 </div>
-
 
 <div class="online">
-
 🟢 SYSTEM ONLINE
-
 </div>
-
 
 <button class="button" onclick="startAnalysis()">
-
 START ANALYSIS
-
 </button>
 
-
 </div>
-
-
-
-
-<!-- EMOTIONAL ENGINE -->
-
-
 <div id="analysis" class="hidden">
 
-
 <div class="logo">
-
 OpenHeart AI
-
 </div>
-
 
 <div class="version">
-
 EMOTIONAL ENGINE v2.0
-
 </div>
-
 
 <div class="status" id="analysisText">
-
 Initializing...
-
 </div>
-
 
 <div class="progress">
-
 <div class="bar" id="analysisBar"></div>
+</div>
 
 </div>
 
-
-</div>
-
-
-
-
-
-<!-- MEMORY CORE -->
 
 
 <div id="memory" class="hidden">
 
-
 <div class="logo">
-
 OpenHeart AI
-
 </div>
-
 
 <div class="version">
-
 MEMORY CORE v3.0
-
 </div>
-
 
 <div class="status" id="memoryText">
-
 Accessing memories...
-
 </div>
-
 
 <div class="progress">
-
 <div class="bar" id="memoryBar"></div>
+</div>
 
 </div>
 
 
-</div>
-
-
-
-
-
-<!-- VISUAL MEMORY DATABASE -->
 
 
 <div id="visualMemory" class="hidden">
 
-
 <div class="logo">
-
 OpenHeart AI
-
 </div>
-
 
 <div class="version">
-
 VISUAL MEMORY DATABASE
-
 </div>
-
 
 <div class="status">
 
@@ -553,9 +368,76 @@ Beginning reconstruction...
 
 </div>
 
-
 <div id="memoryContent">
 
+</div>
+
+</div>
+
+
+
+
+<div id="letter" class="hidden">
+
+<div class="logo">
+OpenHeart AI
+</div>
+
+<div class="version">
+SECRET MEMORY LETTER
+</div>
+
+
+<div id="envelopeArea">
+
+<div class="envelope">
+💌
+</div>
+
+
+<div class="status">
+
+A special message has been recovered.
+
+<br><br>
+
+<button class="dynamicButton" onclick="startLetter()">
+
+OPEN LETTER
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div id="letterContent" class="hidden">
+
+<div class="letterBox">
+
+<div class="letterTitle">
+
+For Dayana ❤️
+
+</div>
+
+
+<div id="typedText">
+
+</div>
+
+
+<div class="heart">
+
+❤️
+
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -564,20 +446,17 @@ Beginning reconstruction...
 
 
 
-
 </div>
-
 
 
 <div class="footer">
 
-BUILD V7.0
+BUILD V8.0
 
 </div>
-<body>
 
 
-<div class="container">
+
 <script>
 
 
@@ -585,7 +464,6 @@ function startAnalysis(){
 
 
 document.getElementById("home").style.display="none";
-
 
 document.getElementById("analysis").classList.remove("hidden");
 
@@ -611,12 +489,10 @@ let messages=[
 let i=0;
 
 
-
 let interval=setInterval(()=>{
 
 
 text.innerHTML=messages[i];
-
 
 bar.style.width=((i+1)*25)+"%";
 
@@ -628,7 +504,6 @@ if(i>=messages.length){
 
 
 clearInterval(interval);
-
 
 
 setTimeout(()=>{
@@ -681,20 +556,16 @@ ACCESS MEMORY CORE
 `;
 
 
-
 },1500);
 
 
-
 }
-
 
 
 },2000);
 
 
 }
-
 
 
 
@@ -704,38 +575,28 @@ function openMemory(){
 
 document.getElementById("analysis").style.display="none";
 
-
 document.getElementById("memory").classList.remove("hidden");
 
 
-
 let text=document.getElementById("memoryText");
-
 
 let bar=document.getElementById("memoryBar");
 
 
 let messages=[
 
-
 "Accessing encrypted memories...",
-
 
 "Decrypting emotional records...",
 
-
 "Timeline reconstruction started...",
 
-
 "4 MEMORY FILES FOUND..."
-
 
 ];
 
 
-
 let i=0;
-
 
 
 let interval=setInterval(()=>{
@@ -743,12 +604,10 @@ let interval=setInterval(()=>{
 
 text.innerHTML=messages[i];
 
-
 bar.style.width=((i+1)*25)+"%";
 
 
 i++;
-
 
 
 if(i>=messages.length){
@@ -757,45 +616,30 @@ if(i>=messages.length){
 clearInterval(interval);
 
 
-
 setTimeout(()=>{
 
-
 openVisualMemory();
-
 
 },1500);
 
 
-
 }
-
 
 
 },2000);
 
 
-
 }
 
-
-
-
-
-
-
-function openVisualMemory(){
+ function openVisualMemory(){
 
 
 document.getElementById("memory").style.display="none";
 
-
 document.getElementById("visualMemory").classList.remove("hidden");
 
 
-
 let box=document.getElementById("memoryContent");
-
 
 
 let memories=[
@@ -862,9 +706,7 @@ return;
 }
 
 
-
 let m=memories[index];
-
 
 
 box.innerHTML=`
@@ -893,7 +735,6 @@ STATUS: RECOVERED ✓
 </div>
 
 
-
 ${m.image ? `
 
 <img src="${m.image}" class="memoryImage">
@@ -914,25 +755,19 @@ ${m.text}
 `;
 
 
-
 index++;
 
 
 setTimeout(showMemory,4500);
 
 
-
 }
-
 
 
 showMemory();
 
 
-
 }
-
-
 
 
 
@@ -999,7 +834,7 @@ UNIQUE CONNECTION
 </span>
 
 
-<br><br><br>
+<br><br>
 
 
 
@@ -1034,7 +869,6 @@ The system analyzed moments.
 <br><br>
 
 
-
 But after processing everything...
 
 
@@ -1058,6 +892,16 @@ SOME PEOPLE ARE IRREPLACEABLE.
 </span>
 
 
+<br><br>
+
+
+<button class="dynamicButton" onclick="openLetter()">
+
+💌 OPEN SECRET LETTER
+
+</button>
+
+
 </div>
 
 `;
@@ -1067,5 +911,117 @@ SOME PEOPLE ARE IRREPLACEABLE.
 }
 
 
+
+
+
+function openLetter(){
+
+
+document.getElementById("visualMemory").style.display="none";
+
+
+document.getElementById("letter").classList.remove("hidden");
+
+
+}
+
+
+
+
+
+function startLetter(){
+
+
+document.getElementById("envelopeArea").style.display="none";
+
+
+document.getElementById("letterContent").classList.remove("hidden");
+
+
+let message=`
+
+Dayana...
+
+
+Si estás leyendo esto, significa que una parte de nuestra historia quedó guardada aquí.
+
+
+OpenHeart AI analizó fechas, momentos y recuerdos...
+
+
+Pero encontró algo que ningún sistema puede medir:
+
+
+lo especial que eres.
+
+
+Desde aquel 23 de julio comenzó una historia formada por pequeños instantes.
+
+
+Un mensaje, una señal, una emoción diferente...
+
+
+El 4 de agosto quedó guardado como un recuerdo único.
+
+
+Y el 18 de noviembre se convirtió en una fecha que siempre tendrá un lugar especial.
+
+
+Gracias por cada sonrisa, cada detalle y cada momento compartido.
+
+
+Porque entre millones de historias...
+
+
+esta tiene algo que la hace irrepetible.
+
+
+Siempre habrá nuevos capítulos por escribir.
+
+
+Con cariño,
+
+
+Juan ❤️
+
+
+— OpenHeart AI
+
+`;
+
+
+
+let i=0;
+
+
+let target=document.getElementById("typedText");
+
+
+let interval=setInterval(()=>{
+
+
+target.innerHTML+=message.charAt(i);
+
+
+i++;
+
+
+if(i>=message.length){
+
+clearInterval(interval);
+
+}
+
+
+},45);
+
+
+}
+
+
+
 </script>
-  
+
+</body>
+
+</html> 
