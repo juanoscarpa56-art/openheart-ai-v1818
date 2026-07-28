@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OpenHeart AI v18.18</title>
+<title>OpenHeart AI v7.0</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -22,15 +22,17 @@ box-sizing:border-box;
 
 body{
 
-background:#070b12;
+background:#050912;
 color:white;
+
 font-family:'Inter',sans-serif;
+
+height:100vh;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-height:100vh;
 overflow:hidden;
 
 }
@@ -39,9 +41,10 @@ overflow:hidden;
 
 .container{
 
-text-align:center;
 width:90%;
 max-width:700px;
+
+text-align:center;
 
 }
 
@@ -49,10 +52,12 @@ max-width:700px;
 
 .logo{
 
-font-size:58px;
+font-size:55px;
 font-weight:700;
+
 letter-spacing:2px;
-margin-bottom:12px;
+
+margin-bottom:10px;
 
 }
 
@@ -61,18 +66,10 @@ margin-bottom:12px;
 .version{
 
 color:#53b8ff;
+
 font-size:18px;
-margin-bottom:40px;
 
-}
-
-
-
-.subtitle{
-
-font-size:20px;
-opacity:.75;
-margin-bottom:60px;
+margin-bottom:35px;
 
 }
 
@@ -81,9 +78,12 @@ margin-bottom:60px;
 .status{
 
 font-size:17px;
-opacity:.85;
-margin-top:35px;
+
 line-height:1.8;
+
+opacity:.9;
+
+margin-top:25px;
 
 }
 
@@ -92,11 +92,16 @@ line-height:1.8;
 .progress{
 
 width:100%;
+
 height:10px;
-background:#1a2331;
+
+background:#182231;
+
 border-radius:50px;
+
 overflow:hidden;
-margin-top:20px;
+
+margin-top:25px;
 
 }
 
@@ -105,67 +110,39 @@ margin-top:20px;
 .bar{
 
 height:100%;
-background:linear-gradient(90deg,#2aa8ff,#7fd0ff);
-
-}
-
-
-
-.initialBar{
 
 width:0%;
-animation:load 4s forwards;
+
+background:linear-gradient(
+90deg,
+#1493ff,
+#74ff9f
+);
+
+transition:1s;
 
 }
 
 
 
-@keyframes load{
+.button,
+.dynamicButton{
 
-from{
-width:0%;
-}
+margin-top:35px;
 
-to{
-width:100%;
-}
-
-}
-
-
-
-.online{
-
-margin-top:40px;
-font-size:18px;
-color:#74ff9f;
-
-opacity:0;
-animation:show 1s forwards;
-animation-delay:4.2s;
-
-}
-
-
-
-.button{
-
-margin-top:45px;
-padding:18px 45px;
+padding:16px 35px;
 
 background:#1493ff;
+
 border:none;
 
-color:white;
-font-size:18px;
-
 border-radius:12px;
+
+color:white;
+
+font-size:17px;
+
 cursor:pointer;
-
-opacity:0;
-
-animation:show 1s forwards;
-animation-delay:5s;
 
 transition:.3s;
 
@@ -173,9 +150,11 @@ transition:.3s;
 
 
 
-.button:hover{
+.button:hover,
+.dynamicButton:hover{
 
 transform:scale(1.05);
+
 box-shadow:0 0 25px #1493ff;
 
 }
@@ -190,30 +169,13 @@ display:none;
 
 
 
-.dynamicButton{
+.online{
 
 margin-top:35px;
-padding:15px 35px;
 
-background:#53b8ff;
-border:none;
+color:#74ff9f;
 
-color:white;
-font-size:16px;
-
-border-radius:12px;
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-
-
-.dynamicButton:hover{
-
-transform:scale(1.05);
-box-shadow:0 0 20px #53b8ff;
+font-size:18px;
 
 }
 
@@ -222,56 +184,31 @@ box-shadow:0 0 20px #53b8ff;
 .footer{
 
 position:absolute;
-bottom:18px;
+
+bottom:15px;
+
 right:20px;
 
-color:#6aa7d8;
 font-size:13px;
+
+color:#5c8db5;
+
 opacity:.5;
 
 }
 
 
 
-@keyframes show{
-
-to{
-opacity:1;
-}
-
-}
 
 
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-transform:translateY(20px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-
-
-/* V4 MEMORY TIMELINE */
+/* MEMORY TIMELINE */
 
 
 .timeline{
 
 margin-top:25px;
+
 text-align:left;
-font-size:15px;
-line-height:1.8;
 
 }
 
@@ -279,14 +216,17 @@ line-height:1.8;
 
 .timelineItem{
 
-opacity:0;
-animation:show 1s forwards;
+padding:15px;
 
-margin-bottom:18px;
-
-padding-left:15px;
+margin-bottom:15px;
 
 border-left:2px solid #53b8ff;
+
+background:#0b1422;
+
+border-radius:10px;
+
+animation:fade 1s forwards;
 
 }
 
@@ -295,8 +235,10 @@ border-left:2px solid #53b8ff;
 .timelineDate{
 
 color:#53b8ff;
+
+font-size:18px;
+
 font-weight:700;
-font-size:17px;
 
 }
 
@@ -306,23 +248,146 @@ font-size:17px;
 
 color:#74ff9f;
 
+margin-top:5px;
+
+}
+
+
+
+
+
+/* MEMORY FILES */
+
+
+.memoryFile{
+
+background:#0b1422;
+
+border:1px solid #26394d;
+
+border-radius:15px;
+
+padding:20px;
+
+margin-top:20px;
+
+animation:fade 1s;
+
+}
+
+
+
+.fileName{
+
+color:#53b8ff;
+
+font-size:18px;
+
+font-weight:600;
+
+}
+
+
+
+.fileStatus{
+
+color:#74ff9f;
+
+margin-top:10px;
+
+}
+
+
+
+.fileDescription{
+
+margin-top:15px;
+
+opacity:.8;
+
+line-height:1.6;
+
+}
+
+
+
+
+
+/* IMAGENES */
+
+
+.memoryImage{
+
+width:100%;
+
+max-width:420px;
+
+border-radius:18px;
+
+margin-top:20px;
+
+box-shadow:0 0 30px #53b8ff;
+
+animation:fade 1.5s;
+
+}
+
+
+
+.scan{
+
+color:#53b8ff;
+
+font-size:16px;
+
+margin-top:15px;
+
+animation:pulse 1s infinite;
+
+}
+
+
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+
+opacity:.4;
+
+}
+
 }
 
 
 
 </style>
 
-
 </head>
 
-
-
-<body>
-
-
-<div class="container">
-
-
+<!-- HOME -->
 
 <div id="home">
 
@@ -336,19 +401,16 @@ OpenHeart AI
 
 <div class="version">
 
-Version 18.18
+VERSION 7.0
 
 </div>
 
 
-<div class="subtitle">
+<div class="status">
 
 Artificial Intelligence for Emotional Analysis
 
-</div>
-
-
-<div>
+<br><br>
 
 Initializing Emotional Core...
 
@@ -357,7 +419,7 @@ Initializing Emotional Core...
 
 <div class="progress">
 
-<div class="bar initialBar"></div>
+<div class="bar" id="initialBar"></div>
 
 </div>
 
@@ -371,7 +433,7 @@ Initializing Emotional Core...
 
 <button class="button" onclick="startAnalysis()">
 
-INICIAR ANÁLISIS
+START ANALYSIS
 
 </button>
 
@@ -380,6 +442,8 @@ INICIAR ANÁLISIS
 
 
 
+
+<!-- EMOTIONAL ENGINE -->
 
 
 <div id="analysis" class="hidden">
@@ -394,14 +458,14 @@ OpenHeart AI
 
 <div class="version">
 
-EMOTIONAL ENGINE v1.8
+EMOTIONAL ENGINE v2.0
 
 </div>
 
 
 <div class="status" id="analysisText">
 
-Initializing analysis...
+Initializing...
 
 </div>
 
@@ -419,6 +483,8 @@ Initializing analysis...
 
 
 
+<!-- MEMORY CORE -->
+
 
 <div id="memory" class="hidden">
 
@@ -432,14 +498,14 @@ OpenHeart AI
 
 <div class="version">
 
-MEMORY CORE v1.0
+MEMORY CORE v3.0
 
 </div>
 
 
 <div class="status" id="memoryText">
 
-Accessing encrypted memories...
+Accessing memories...
 
 </div>
 
@@ -455,19 +521,63 @@ Accessing encrypted memories...
 
 
 
+
+
+<!-- VISUAL MEMORY DATABASE -->
+
+
+<div id="visualMemory" class="hidden">
+
+
+<div class="logo">
+
+OpenHeart AI
+
+</div>
+
+
+<div class="version">
+
+VISUAL MEMORY DATABASE
+
+</div>
+
+
+<div class="status">
+
+4 emotional records detected.
+
+<br>
+
+Beginning reconstruction...
+
+</div>
+
+
+<div id="memoryContent">
+
+
+</div>
+
+
+</div>
+
+
+
+
 </div>
 
 
 
 <div class="footer">
 
-Build 18:18
+BUILD V7.0
 
 </div>
+<body>
 
 
-
-
+<div class="container">
 <script>
 
 
@@ -480,22 +590,22 @@ document.getElementById("home").style.display="none";
 document.getElementById("analysis").classList.remove("hidden");
 
 
-
 let text=document.getElementById("analysisText");
+
+let bar=document.getElementById("analysisBar");
 
 
 let messages=[
 
 "Initializing Emotional Engine...",
 
-"Loading Memory System...",
-
 "Analyzing connection patterns...",
 
-"Generating personalized report..."
+"Searching emotional data...",
+
+"Generating personal analysis..."
 
 ];
-
 
 
 let i=0;
@@ -508,12 +618,10 @@ let interval=setInterval(()=>{
 text.innerHTML=messages[i];
 
 
-document.getElementById("analysisBar").style.width=((i+1)*25)+"%";
-
+bar.style.width=((i+1)*25)+"%";
 
 
 i++;
-
 
 
 if(i>=messages.length){
@@ -528,7 +636,7 @@ setTimeout(()=>{
 
 text.innerHTML=`
 
-<div style="font-size:22px;color:#74ff9f;">
+<div style="color:#74ff9f;font-size:22px">
 
 ANALYSIS COMPLETE
 
@@ -537,19 +645,22 @@ ANALYSIS COMPLETE
 
 <br>
 
+
 SUBJECT IDENTIFIED:
+
 
 <br>
 
 
-<span style="font-size:35px;color:#53b8ff;">
+<span style="font-size:38px;color:#53b8ff">
 
-D.
+DAYANA
 
 </span>
 
 
 <br><br>
+
 
 STATUS:
 
@@ -570,6 +681,7 @@ ACCESS MEMORY CORE
 `;
 
 
+
 },1500);
 
 
@@ -581,9 +693,7 @@ ACCESS MEMORY CORE
 },2000);
 
 
-
 }
-
 
 
 
@@ -602,15 +712,23 @@ document.getElementById("memory").classList.remove("hidden");
 let text=document.getElementById("memoryText");
 
 
+let bar=document.getElementById("memoryBar");
+
+
 let messages=[
+
 
 "Accessing encrypted memories...",
 
-"Searching emotional database...",
 
-"Decrypting personal records...",
+"Decrypting emotional records...",
 
-"TIMELINE RECOVERED..."
+
+"Timeline reconstruction started...",
+
+
+"4 MEMORY FILES FOUND..."
+
 
 ];
 
@@ -626,8 +744,7 @@ let interval=setInterval(()=>{
 text.innerHTML=messages[i];
 
 
-document.getElementById("memoryBar").style.width=((i+1)*25)+"%";
-
+bar.style.width=((i+1)*25)+"%";
 
 
 i++;
@@ -644,115 +761,7 @@ clearInterval(interval);
 setTimeout(()=>{
 
 
-text.innerHTML=`
-
-<div style="font-size:20px;color:#74ff9f;">
-
-MEMORY CORE ACTIVATED
-
-</div>
-
-
-<br>
-
-
-<div style="font-size:18px;color:#53b8ff;">
-
-MEMORY TIMELINE
-
-</div>
-
-
-
-<div class="timeline">
-
-
-<div class="timelineItem" style="animation-delay:.5s">
-
-<div class="timelineDate">
-
-23 JULY
-
-</div>
-
-<div class="timelineText">
-
-● First Connection Detected
-
-</div>
-
-</div>
-
-
-
-<div class="timelineItem" style="animation-delay:1.5s">
-
-<div class="timelineDate">
-
-26 JULY
-
-</div>
-
-<div class="timelineText">
-
-● Signal Event Registered
-
-</div>
-
-</div>
-
-
-
-<div class="timelineItem" style="animation-delay:2.5s">
-
-<div class="timelineDate">
-
-04 AUGUST
-
-</div>
-
-<div class="timelineText">
-
-● Nacional Moment Archived
-
-</div>
-
-</div>
-
-
-
-<div class="timelineItem" style="animation-delay:3.5s">
-
-<div class="timelineDate">
-
-18 NOVEMBER
-
-</div>
-
-<div class="timelineText">
-
-● Connection Protocol Initiated
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<br>
-
-
-<button class="dynamicButton" onclick="finalReveal()">
-
-OPEN FINAL REPORT
-
-</button>
-
-
-`;
-
+openVisualMemory();
 
 
 },1500);
@@ -775,13 +784,164 @@ OPEN FINAL REPORT
 
 
 
+function openVisualMemory(){
+
+
+document.getElementById("memory").style.display="none";
+
+
+document.getElementById("visualMemory").classList.remove("hidden");
+
+
+
+let box=document.getElementById("memoryContent");
+
+
+
+let memories=[
+
+
+{
+
+name:"23_JULY_FIRST_CONNECTION.dat",
+
+text:"The first emotional signal was detected. The beginning of the story."
+
+},
+
+
+{
+
+name:"26_JULY_SIGNAL_EVENT.log",
+
+text:"A unique signal was registered. A moment impossible to ignore."
+
+},
+
+
+{
+
+name:"04_AUGUST_NACIONAL.archive",
+
+image:"nacional.jpg",
+
+text:"Emotionally significant memory detected. Permanent record created."
+
+},
+
+
+{
+
+name:"18_NOVEMBER_CONNECTION_PROTOCOL.connection",
+
+image:"noviembre.jpg",
+
+text:"Connection protocol completed. A new chapter was initiated."
+
+}
+
+
+];
+
+
+
+let index=0;
+
+
+
+function showMemory(){
+
+
+if(index>=memories.length){
+
+
+setTimeout(finalReveal,2000);
+
+return;
+
+}
+
+
+
+let m=memories[index];
+
+
+
+box.innerHTML=`
+
+<div class="scan">
+
+SCANNING MEMORY...
+
+</div>
+
+
+<div class="memoryFile">
+
+
+<div class="fileName">
+
+${m.name}
+
+</div>
+
+
+<div class="fileStatus">
+
+STATUS: RECOVERED ✓
+
+</div>
+
+
+
+${m.image ? `
+
+<img src="${m.image}" class="memoryImage">
+
+` : ""}
+
+
+
+<div class="fileDescription">
+
+${m.text}
+
+</div>
+
+
+</div>
+
+`;
+
+
+
+index++;
+
+
+setTimeout(showMemory,4500);
+
+
+
+}
+
+
+
+showMemory();
+
+
+
+}
+
+
+
+
+
+
+
 function finalReveal(){
 
 
-let memory=document.getElementById("memory");
-
-
-memory.innerHTML=`
+document.getElementById("visualMemory").innerHTML=`
 
 <div class="logo">
 
@@ -801,17 +961,55 @@ FINAL EMOTIONAL REPORT
 <div class="status">
 
 
-<div style="font-size:18px;color:#53b8ff;">
+MEMORIES ANALYZED:
+
+<br>
+
+<span style="font-size:30px;color:#53b8ff">
+
+04
+
+</span>
+
+
+<br><br>
+
+
+
+EVENTS RECOVERED:
+
+<br>
+
+04
+
+
+<br><br>
+
+
+
+PATTERN IDENTIFIED:
+
+<br>
+
+
+<span style="color:#74ff9f">
+
+UNIQUE CONNECTION
+
+</span>
+
+
+<br><br><br>
+
+
 
 PRIMARY SUBJECT:
-
-</div>
 
 
 <br>
 
 
-<span style="font-size:38px;color:#53b8ff;">
+<span style="font-size:40px;color:#53b8ff">
 
 DAYANA
 
@@ -821,11 +1019,14 @@ DAYANA
 <br><br>
 
 
+
+The system analyzed dates.
+
+<br>
+
 The system analyzed memories.
 
-
-<br><br>
-
+<br>
 
 The system analyzed moments.
 
@@ -833,38 +1034,31 @@ The system analyzed moments.
 <br><br>
 
 
-But one variable remains impossible to calculate:
+
+But after processing everything...
 
 
 <br><br>
 
 
-<span style="font-size:24px;color:white;">
+<span style="font-size:25px">
 
-THE VALUE OF SOMEONE SPECIAL.
-
-</span>
-
-
-<br><br><br>
-
-
-CONNECTION STATUS:
-
-
-<br>
-
-
-<span style="color:#74ff9f;font-size:24px;">
-
-IRREPLACEABLE
+SOME PEOPLE ARE IRREPLACEABLE.
 
 </span>
 
+
+<br><br>
+
+
+<span style="color:#74ff9f;font-size:25px">
+
+∞ IRREPLACEABLE
+
+</span>
 
 
 </div>
-
 
 `;
 
@@ -874,9 +1068,4 @@ IRREPLACEABLE
 
 
 </script>
-
-
-
-</body>
-
-</html>
+  
