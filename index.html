@@ -455,7 +455,9 @@ BUILD V8.0
 
 </div>
 
-
+<audio id="loveSong" loop>
+<source src="privilegio.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
@@ -936,8 +938,30 @@ document.getElementById("envelopeArea").style.display="none";
 
 
 document.getElementById("letterContent").classList.remove("hidden");
+let song=document.getElementById("loveSong");
 
-let message=`
+song.volume=0;
+song.play();
+
+let volume=0;
+
+let fade=setInterval(()=>{
+
+if(volume<0.35){
+
+volume+=0.02;
+song.volume=volume;
+
+}else{
+
+clearInterval(fade);
+
+}
+
+},200);
+
+ 
+ let message=`
 
 Dayana...
 
